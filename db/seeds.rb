@@ -10,15 +10,17 @@
 require 'faker'
 
 
-nb_user = 500
-nb_events = 50
-nb_guests = 1000
+nb_user = 50  
+nb_events = 5
+nb_guests = 100
 
 
 nb_user.times do |x|
+  fname = Faker::Name.first_name
   User.create(
-      email: Faker::Name.first_name+'@yopmail.com',
-      first_name: Faker::Name.first_name,
+      email: fname+'@yopmail.com',
+      first_name:  fname,
+      password: 'azerty',
       last_name: Faker::Name.last_name,
       description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false))
   puts "Seeding of User nb #{x}"
