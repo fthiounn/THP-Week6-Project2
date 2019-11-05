@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -84,6 +85,12 @@ class UsersController < ApplicationController
       params.fetch(:user, {})
     end
 
+    def authenticate_user
+    unless current_user 
+      flash[:danger] = "This section requires to be logged-in. Please log in."
+      redirect_to new_user_session_url
+    end
+  end
 end
 
 

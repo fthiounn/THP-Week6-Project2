@@ -6,7 +6,6 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     #figure out how to find a featured event and what it is
-    @event = Event.find(1)
   end
 
   # GET /events/1
@@ -21,21 +20,28 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(title: params[:title], 
+      description: params[:description],
+      location: params[:location],
+      price: params[:price],
+      start_date: params[:start_date],
+      duration: params[:duration],
+      admin_id: current_user.id)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save # essaie de sauvegarder en base @gossip
+        flash[:success] = "You successfuly created an event"
+        redirect_to :controller => 'events', :action => 'show', id: @event.id
+    else
+      # This line overrides the default rendering behavior, which
+      # would have been to render the "create" view.
+      flash.now[:danger] = "Error with the account creation"
+      render :action => 'new'
     end
   end
 

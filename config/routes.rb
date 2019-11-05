@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :attendances
   resources :events
   resources :users
-  resources :team, only: [:index]
-  resources :contact, only: [:index]
+  resources :teams, only: [:index]
+  resources :contacts, only: [:index]
   root 'events#index'
 end
