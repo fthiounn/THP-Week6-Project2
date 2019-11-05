@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:show, :edit, :update, :destroy]
+  before_action :is_owner, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -54,7 +55,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(first_name: params[:first_name], 
+                    last_name: params[:last_name],
+                    description: params[:description],
+                    email: params[:mail])
+        flash[:success] = "You successfuly updated your account"
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -86,22 +91,19 @@ class UsersController < ApplicationController
     end
 
     def authenticate_user
-    unless current_user 
-      flash[:danger] = "This section requires to be logged-in. Please log in."
-      redirect_to new_user_session_url
+      unless current_user 
+        flash[:danger] = "This section requires to be logged-in. Please log in."
+        redirect_to new_user_session_url
+      end
     end
-  end
+
+    def is_owner
+      if current_user.id.to_i != params[:id].to_i
+        flash[:danger] = "You can't acces this page"
+        redirect_to "/"
+      end
+    end
 end
-
-
-
-
-
-
-
-
-
-
 
 
 

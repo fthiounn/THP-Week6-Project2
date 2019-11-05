@@ -26,11 +26,7 @@
 
   <body>
 
-    <!-- FLASH MESSAGES -->
 
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "alert-#{key}" %>
-    <% end %>
     
     <!-- NAVBAR  --> 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -69,7 +65,11 @@
       </div>
     </nav>
 
+        <!-- FLASH MESSAGES -->
 
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "alert-#{key}" %>
+    <% end %>
 
 
     <%= yield %>
