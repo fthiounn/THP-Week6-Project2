@@ -3,7 +3,8 @@
 <!-- Junbotron User -->
 <div class="jumbotron">
   <h1 class="display-4"><%= @event.title %></h1>
-  <p class="display-4"><%= @event.start_date.strftime("%d/%m/%Y") %></p>
+</br></br>
+  <p class="display-4"><%= @event.start_date.strftime("%h %d, %Y") %></p>
 </div>
 
 
@@ -13,8 +14,9 @@
     <div class="card-body">
     	<h5 class="card-title"><%= @event.title %> </h5>
     	<p class="card-title"><strong>Producer : </strong><%= @admin.first_name %><%=" "%> <%=@admin.last_name %></p>
-    	<p class="card-title"><strong>Date : </strong> <%= @event.start_date.strftime("%h %d %Y, %H:%M") %></p>
-    	<p class="card-title"><strong>Duration : </strong><%= @event.duration %> min</p>
+    	<p class="card-title"><strong>Start date : </strong> <%= @event.start_date.strftime("%h %d %Y, %H:%M") %></p>
+      <p class="card-title"><strong>End date   : </strong> <%= get_end_date(@event).strftime("%h %d %Y, %H:%M") %> </p>
+      <p class="card-title"><strong>Duration : </strong><%= @event.duration %> min</p>
     	<p class="card-title"><strong>Location : </strong><%= @event.location %></p>
     	<p class="card-text"> <strong>Description : </strong><%= @event.description %></p>
     	<p class="card-title"><strong>Event created the : </strong><%= @event.created_at.strftime("%d/%m/%Y") %></p>
