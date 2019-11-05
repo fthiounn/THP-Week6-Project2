@@ -4,8 +4,7 @@
 # Notes & Use :
 
 - hosted on heroku at : https://shrouded-dawn-29894.herokuapp.com/
--
--
+
 
 # Projet : Eventbrite : Devise et premières views
   
