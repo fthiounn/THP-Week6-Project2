@@ -1,4 +1,4 @@
-# THP - Week 6 - Project 1 - Eventbrite : introduction et backend
+# THP - Week 6 - Project 2 - Eventbrite : Devise et premières views
 # Francois THIOUNN 
 
 # Notes & Use :
