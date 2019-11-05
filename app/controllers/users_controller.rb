@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
+    @admin_events = Event.where(admin_id: @user.id)
+    (@admin_events.size > 0)? (@admin = true) : (@admin = false)
+    @guest_events = Event.joins(:attendances).where('attendances.user_id = ?', @user.id)
+    (@guest_events.size > 0)? (@guest = true) : (@guest = false)
   end
 
   # GET /users/new

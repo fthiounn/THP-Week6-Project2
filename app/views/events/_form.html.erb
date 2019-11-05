@@ -10,7 +10,27 @@
       </ul>
     </div>
   <% end %>
-
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h3> Create a new Event !</h3>
+  <div class="row justify-content-center">
+    <p style = "width: 200px"> Title : <input type="text" name="Title"></p>
+  </div>
+  <div class="row justify-content-center">
+    <p style = "width: 200px"> Description   : <input type="text" name="Description"></p>
+  </div>
+  <div class="row justify-content-center">
+    <p style = "width: 200px"> Location : <input type="text" name="Location"></p>
+  </div>
+  <div class="row justify-content-center">
+    <p style = "width: 200px"> Price : <input type="number" name="Price"></p>
+  </div>
+  <div class="row justify-content-center">
+    <%= form.input :when, as: :date_time_picker %>
+    <p style = "width: 200px"> Start Date : <input type="datetime" name="start_date"></p>
+  </div>
+  <div class="row justify-content-center">
+    <p style = "width: 200px">Duration (must be a multiple of 5): <input type="number" name="duration"></p>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -7,6 +7,8 @@
   validates :price, presence: true
   validates_inclusion_of :price, :in => 1..1000
   validates :location, presence: true
+  has_many :attendances
+  has_many :users, through: :attendances
 
   def divisible_by_five
     if (self.duration % 5) != 0
