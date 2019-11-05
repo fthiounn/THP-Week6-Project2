@@ -18,7 +18,7 @@
       <p class="card-title"><strong>End date   : </strong> <%= get_end_date(@event).strftime("%h %d %Y, %H:%M") %> </p>
       <p class="card-title"><strong>Duration : </strong><%= @event.duration %> min</p>
     	<p class="card-title"><strong>Location : </strong><%= @event.location %></p>
-    	<p class="card-text"> <strong>Description : </strong><%= @event.description %></p>
+    	<p class="card-title"> <strong>Description : </strong></br></br> <%= @event.description %></p></br>  </br> 
     	<p class="card-title"><strong>Event created the : </strong><%= @event.created_at.strftime("%d/%m/%Y") %></p>
     	</br>	
    		<p class="card-title"><strong>Price :</strong> <%= @event.price %>$ <%= link_to "Buy Now", new_attendance_path , class: "btn btn-danger text-white float-right" %></p>
@@ -26,7 +26,7 @@
    		<p  class="card-title">This show has <%= @nb_guests %> participants</p>
    		<% if user_signed_in?%>
     	<% if is_event_admin?(@admin) %>
-        	<%= link_to 'Edit', edit_event_path(@event) %>
+        	<%= link_to 'Edit', edit_event_path(@event) %> |
         	<%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }  %>
       	<% end %>
       	<% end %>

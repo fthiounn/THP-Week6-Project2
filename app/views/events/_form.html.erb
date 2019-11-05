@@ -11,26 +11,25 @@
     </div>
   <% end %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h3> Create a new Event !</h3>
-  <div class="row justify-content-center">
-    <p style = "width: 200px"> Title : <input type="text" name="title" value="<%= @event.title %>"></p>
+  <div class="row justify-content-center mt-4 mb-2 ">
+    <p style = "width: 400px"> Title : <input style="width:400px; height:30px" type="text" name="title" value="<%= @event.title %>"></p>
   </div>
-  <div class="row justify-content-center">
-    <p style = "width: 200px"> Description   : <input type="text" name="description" value="<%= @event.description %>"></p>
+  <div class="row justify-content-center m-2">
+    <p style = "width: 400px"> Description   : <input style="width:400px; height:30px" type="text" name="description" value="<%= @event.description %>"></p>
   </div>
-  <div class="row justify-content-center">
-    <p style = "width: 200px"> Location : <input type="text" name="location" value="<%= @event.location %>"></p>
+  <div class="row justify-content-center m-2">
+    <p style = "width: 400px"> Location : <input style="width:400px; height:30px" type="text" name="location" value="<%= @event.location %>"></p>
   </div>
-  <div class="row justify-content-center">
-    <p style = "width: 200px"> Price : <input type="number" name="price" value="<%= @event.price %>"></p>
+  <div class="row justify-content-center m-2">
+    <p style = "width: 400px"> Price : <input style="width:400px; height:30px" type="number" name="price" value="<%= @event.price %>"></p>
   </div>
-  <div class="row justify-content-center">
-    <p style = "width: 200px"> Start Date format : ('YYYY-MM-DD HH:mm:ss') <input type="datetime" name="start_date" value="<%= @event.start_date %>"></p>
+  <div class="row justify-content-center m-2">
+    <p style = "width: 400px"> Start Date format : ('YYYY-MM-DD HH:mm:ss') <input style="width:400px; height:30px" type="datetime" name="start_date" value="<%= @event.start_date %>"></p>
   </div>
-  <div class="row justify-content-center">
-    <p style = "width: 200px">Duration (must be a multiple of 5): <input type="number" name="duration" value="<%= @event.duration %>"></p>
+  <div class="row justify-content-center m-2">
+    <p style = "width: 400px">Duration (must be a multiple of 5): <input style="width:400px; height:30px" type="number" name="duration" value="<%= @event.duration %>"></p>
   </div>
-  <div class="actions">
+  <div class="actions text-center mt-5">
     <%= form.submit %>
   </div>
 <% end %>
