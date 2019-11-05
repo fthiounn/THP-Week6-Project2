@@ -22,9 +22,11 @@
    		<p class="card-title"><strong>Price :</strong> <%= @event.price %>$ <%= link_to "Buy Now", new_attendance_path , class: "btn btn-danger text-white float-right" %></p>
 
    		<p  class="card-title">This show has <%= @nb_guests %> participants</p>
+   		<% if user_signed_in?%>
     	<% if is_event_admin?(@admin) %>
         	<%= link_to 'Edit', edit_event_path(@event) %>
         	<%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }  %>
+      	<% end %>
       	<% end %>
 
     </div>
